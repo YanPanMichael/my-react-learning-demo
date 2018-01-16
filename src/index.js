@@ -50,8 +50,9 @@ const comment = {
       name: 'Hello Kitty',
       avatarUrl: 'http://placekitten.com/g/64/64'
     }
-  };
-  ReactDOM.render(
+};
+
+ReactDOM.render(
     <Comment
       date={comment.date}
       text={comment.text}
