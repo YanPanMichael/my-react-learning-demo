@@ -4,20 +4,23 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-function tick() {
-    const element = (
-        <div>
-            <h1>Hello, world!</h1>
-            <h2>It is {new Date().toLocaleTimeString()}.</h2>
-        </div>
-    )
-    ReactDOM.render(
-        element, 
-        document.getElementById('root')
-    );
+function Welcome(props) {
+    return <h1>hello, {props.name}</h1>
 }
 
-setInterval(tick, 2000);
+function Elements() {
+    return (
+        <div>
+            <Welcome name="Haha" />
+            <Welcome name="Cande" />
+            <Welcome name="Edite" />
+        </div>
+    )
+}
 
+ReactDOM.render(
+    <Elements />,
+    document.getElementById('root')
+);
 
 // registerServiceWorker();
