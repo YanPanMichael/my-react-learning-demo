@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
+import WelcomeDialog from './SignUpDialog';
 
 function BoilingVerdict(props) {
   if (props.celsius >= 100) {
@@ -100,7 +101,7 @@ class Calculator extends React.Component {
 }
 
 ReactDOM.render(
-  <Calculator />,
+  <WelcomeDialog />,
   document.getElementById('root')
 );
 
