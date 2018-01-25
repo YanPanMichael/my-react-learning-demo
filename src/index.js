@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
-import WelcomeDialog from './SignUpDialog';
+import SplitPaneContainer from './SignUpDialog';
 
 function BoilingVerdict(props) {
   if (props.celsius >= 100) {
@@ -101,7 +101,7 @@ class Calculator extends React.Component {
 }
 
 ReactDOM.render(
-  <WelcomeDialog />,
+  <SplitPaneContainer />,
   document.getElementById('root')
 );
 
