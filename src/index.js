@@ -105,6 +105,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+
 // 让我们梳理下编辑输入框时所发生的一系列活动：
 
 // React在DOM原生组件<input>上调用指定的onChange函数。在本例中，指的是TemperatureInput组件上的handleChange函数。
