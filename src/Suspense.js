@@ -1,28 +1,40 @@
 import React, { Component } from 'react'
 
 function fetchProfileData() {
+  const userPromise = fetchUser();
+  const postPromise = fetchPosts();
   return {
-    user: wrapPromise(fetchUser),
-    posts: wrapPromise(fetchPosts)
+    user: wrapPromise(userPromise),
+    posts: wrapPromise(postPromise)
   }
 }
-
-wrapPromise
-
 
 function wrapPromise(promise) {
+  let status = "pending";
   let result;
-  promise.then(r => {
-    result = r;
-  },e => {
-    result = e;
-  })
+  let suspender = promise.then(
+    r => {
+      status = "success";
+      result = r;
+    },
+    e => {
+      status = "error";
+      result = e;
+    }
+  );
   return {
     read() {
-      return result;
+      if (status === "pending") {
+        throw suspender;
+      } else if (status === "error") {
+        throw result;
+      } else if (status === "success") {
+        return result;
+      }
     }
-  }
+  };
 }
+
 
 function fetchUser() {
   console.log("fetch user...");
