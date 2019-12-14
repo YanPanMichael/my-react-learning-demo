@@ -5,6 +5,7 @@ import App from "./App";
 // import registerServiceWorker from './registerServiceWorker';
 import SignUpDialog from "./SignUpDialog";
 import { DoubleClick1, DoubleClick2, DoubleClick3 } from "./DoubleClick";
+import ProfilePage from "./SuspenseDemo";
 
 function BoilingVerdict(props) {
   if (props.celsius >= 100) {
@@ -103,7 +104,8 @@ class Calculator extends React.Component {
 ReactDOM.render(
   // <SignUpDialog />,
   // <Calculator />,
-  <DoubleClick3 />,
+  // <DoubleClick3 />,
+  <ProfilePage />,
   document.getElementById("root")
 );
 

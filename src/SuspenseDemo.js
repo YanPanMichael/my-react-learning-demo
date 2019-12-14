@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 
 function fetchProfileData() {
   const userPromise = fetchUser();
@@ -77,7 +77,7 @@ function ProfileDetails() {
   return <h1>{user.name}</h1>;
 }
 
-function ProfileTimeLines() {
+function ProfileTimeLine() {
   const posts = resources.posts.read();
   return (
     <ul>
@@ -85,5 +85,16 @@ function ProfileTimeLines() {
         <li key={post.id}>{post.text}</li>
       ))}
     </ul>
+  );
+}
+
+export default function ProfilePage() {
+  return (
+    <Suspense fallback={<h1>Loading profile...</h1>}>
+      <ProfileDetails />
+      <Suspense fallback={<h1>Loading posts...</h1>}>
+        <ProfileTimeLine />
+      </Suspense>
+    </Suspense>
   );
 }
