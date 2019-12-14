@@ -1,5 +1,50 @@
 import React, { Component } from 'react'
 
+function fetchProfileData() {
+  return {
+    user: fetchUser,
+    posts: fetchPosts
+  }
+}
+
+function fetchUser() {
+  console.log("fetch user...");
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("fetch get user");
+      resolve({
+        name: "tim"
+      })
+    }, 1000);
+  })
+}
+
+function fetchPosts() {
+  console.log("fetch posts...");
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("fetch get posts");
+      resolve([
+        {
+          id: 0,
+          text:
+            "I get by with a little help from my friends"
+        },
+        {
+          id: 1,
+          text:
+            "I'd like to be under the sea in an octupus's garden"
+        },
+        {
+          id: 2,
+          text:
+            "You got that sand all over your feet"
+        }
+      ])
+    }, 2000);
+  })
+}
+
 class SuspenseDemo extends Component {
   render () {
     return (
