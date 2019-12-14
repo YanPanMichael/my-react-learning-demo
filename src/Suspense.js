@@ -2,8 +2,25 @@ import React, { Component } from 'react'
 
 function fetchProfileData() {
   return {
-    user: fetchUser,
-    posts: fetchPosts
+    user: wrapPromise(fetchUser),
+    posts: wrapPromise(fetchPosts)
+  }
+}
+
+wrapPromise
+
+
+function wrapPromise(promise) {
+  let result;
+  promise.then(r => {
+    result = r;
+  },e => {
+    result = e;
+  })
+  return {
+    read() {
+      return result;
+    }
   }
 }
 
@@ -45,14 +62,5 @@ function fetchPosts() {
   })
 }
 
-class SuspenseDemo extends Component {
-  render () {
-    return (
-      <div>
-        
-      </div>
-    )
-  }
-}
+const resources = fetchProfileData();
 
-export default SuspenseDemo
