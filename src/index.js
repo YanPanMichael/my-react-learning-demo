@@ -104,7 +104,7 @@ class Calculator extends React.Component {
 ReactDOM.render(
   // <SignUpDialog />,
   // <Calculator />,
-  // <DoubleClick3 />,
+  <DoubleClick3 />,
   <ProfilePage />,
   document.getElementById("root")
 );
